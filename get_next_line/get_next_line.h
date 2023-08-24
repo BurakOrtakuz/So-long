@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: segungor <42istanbul.com.tr>               +#+  +:+       +#+        */
+/*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/05 22:37:38 by segungor          #+#    #+#             */
-/*   Updated: 2023/01/05 22:37:42 by segungor         ###   ########.tr       */
+/*   Created: 2023/05/11 17:16:41 by bortakuz          #+#    #+#             */
+/*   Updated: 2023/07/12 10:13:44 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,15 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 50
+#  define BUFFER_SIZE 5000
 # endif
 
+# include <fcntl.h>
 # include <stdlib.h>
 # include <unistd.h>
 
-size_t	ft_strlen(char *buf);
 char	*get_next_line(int fd);
-char	*get_new_line(char *buffer);
-char	*first_line(int fd, char *buffer);
-char	*strjoin(char *buffer, char *new_buffer);
-char	*get_new_buffer(char *buffer);
-int		find_nl_char(char *buffer);
-
+int		ft_strlen(char *s);
+char	*ft_strjoin(char *s1, char *s2);
+char	*ft_strchr(const char *s, int c);
 #endif

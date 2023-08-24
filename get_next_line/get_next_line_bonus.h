@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: segungor <42istanbul.com.tr>               +#+  +:+       +#+        */
+/*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/05 22:38:12 by segungor          #+#    #+#             */
-/*   Updated: 2023/01/05 22:38:14 by segungor         ###   ########.tr       */
+/*   Created: 2023/05/11 17:16:41 by bortakuz          #+#    #+#             */
+/*   Updated: 2023/07/12 10:13:46 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,15 @@
 # define GET_NEXT_LINE_BONUS_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1000
+#  define BUFFER_SIZE 5000
 # endif
 
+# include <fcntl.h>
 # include <stdlib.h>
 # include <unistd.h>
 
-size_t	ft_strlen(char *buf);
 char	*get_next_line(int fd);
-char	*get_new_line(char *buffer);
-char	*first_read(int fd, char *buffer);
-int		find_nl_char(char *buffer);
-char	*strjoin(char *buffer, char *new_buffer);
-char	*get_new_buffer(char *buffer);
-
+int		ft_strlen(char *s);
+char	*ft_strjoin(char *s1, char *s2);
+char	*ft_strchr(const char *s, int c);
 #endif
