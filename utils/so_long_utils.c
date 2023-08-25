@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 23:57:10 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/13 19:53:52 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/25 17:58:36 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	*ft_memcpy(char *dst, const char *src, int n)
 	i = 0;
 	while (i < n)
 	{
-		printf("%c",src[i]);
 		dst[i] = src[i];
 		i++;
 	}

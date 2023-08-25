@@ -6,11 +6,11 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 23:34:37 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/24 02:00:10 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/25 18:12:35 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 #include <stdlib.h>
 
 static char	**create_dummy_map(t_map *map)

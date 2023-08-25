@@ -6,15 +6,15 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 00:02:05 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/13 20:28:41 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/25 19:13:32 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 #include <unistd.h>
 #include <fcntl.h>
 #include <stdlib.h>
-#include "./get_next_line/get_next_line.h"
+#include "../utils/get_next_line/get_next_line.h"
 #include <stdio.h>
 
 static int	check_ber(char *str)
@@ -80,6 +80,7 @@ char	**is_valid(int fd)
 		}
 	}
 	map = ft_split(temp2, '\n');
+	printf("%s", map[1]);
 	is_map_borders_valid(map);
 	return (map);
 }
