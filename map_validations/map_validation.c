@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 00:02:05 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/25 19:13:32 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/26 11:33:55 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ char	**is_valid(int fd)
 		}
 	}
 	map = ft_split(temp2, '\n');
-	printf("%s", map[1]);
 	is_map_borders_valid(map);
 	return (map);
 }

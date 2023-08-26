@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:16:41 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/07/12 10:13:44 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/26 11:32:57 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 5000
+#  define BUFFER_SIZE 30
 # endif
 
 # include <fcntl.h>

@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 23:34:37 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/25 18:12:35 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/26 11:43:38 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ static char	**create_dummy_map(t_map *map)
 static void	is_player_reach_all_collectiables(
 	char **map, int i, int j, int *coins)
 {
-	if (map[i][j] == '1' || map[i][j] == 'E')
-		return ;
-	if (map[i][j] == 'C')
+	if (map[i][j] == 'C' || map[i][j] == 'E')
 	{
 		*coins += 1;
 	}
+	if (map[i][j] == '1' || map[i][j] == 'E')
+		return ;
 	map[i][j] = '1';
 	is_player_reach_all_collectiables(map, i + 1, j, coins);
 	is_player_reach_all_collectiables(map, i - 1, j, coins);
@@ -102,6 +102,7 @@ void	calculate_things(t_map *map)
 	coins = 0;
 	is_player_reach_all_collectiables(
 		create_dummy_map(map), map->player.y, map->player.x, &coins);
-	if (coins != map->coin)
-		error_massage("Player Can not Collect All Coins", map->map);
+	if (coins != map->coin + 1)
+		error_massage("Player Can Not Collect All Coins Or Can Not Reach Exit",
+			map->map);
 }

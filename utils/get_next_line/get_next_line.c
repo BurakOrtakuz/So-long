@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:16:41 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/07/12 10:13:42 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/26 11:32:22 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ static char	*next_line(int fd, char *s)
 char	*get_next_line(int fd)
 {
 	char		*str;
-	static char	*line;
+	static char	*line = NULL;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
