@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 15:02:54 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/27 15:06:50 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/27 18:51:41 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,16 @@
 
 void	free_map(char **map)
 {
-	if (map[1])
-		free_map(&map[1]);
-	if (map)
-		free(map[0]);
+	int	ecx;
+
+	ecx = -1;
+	while (++ecx, map[ecx])
+	{
+		free(map[ecx]);
+		map[ecx] = (void *)0;
+	}
+	free(map);
+	map = (void *)0;
 }
 
 void	error_massage(char *str, char **map)

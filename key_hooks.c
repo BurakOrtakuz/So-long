@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 17:45:10 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/27 15:13:45 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/27 18:34:20 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 int	exit_game(t_program *program)
 {
 	free_map(program->map->map);
+	mlx_destroy_window(program->mlx, program->window.reference);
+	while (1)
+		(void)0;
 	exit(0);
 }
 
