@@ -6,12 +6,13 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 23:34:37 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/26 11:43:38 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/26 13:44:13 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 static char	**create_dummy_map(t_map *map)
 {
@@ -41,7 +42,7 @@ static char	**create_dummy_map(t_map *map)
 static void	is_player_reach_all_collectiables(
 	char **map, int i, int j, int *coins)
 {
-	if (map[i][j] == 'C' || map[i][j] == 'E')
+	if (map[i][j] == 'C')
 	{
 		*coins += 1;
 	}
@@ -102,7 +103,7 @@ void	calculate_things(t_map *map)
 	coins = 0;
 	is_player_reach_all_collectiables(
 		create_dummy_map(map), map->player.y, map->player.x, &coins);
-	if (coins != map->coin + 1)
+	if (coins != map->coin)
 		error_massage("Player Can Not Collect All Coins Or Can Not Reach Exit",
 			map->map);
 }

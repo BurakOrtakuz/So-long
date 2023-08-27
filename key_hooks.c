@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sprite.h                                           :+:      :+:    :+:   */
+/*   key_hooks.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/25 17:51:18 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/25 17:56:09 by bortakuz         ###   ########.fr       */
+/*   Created: 2023/08/26 17:45:10 by bortakuz          #+#    #+#             */
+/*   Updated: 2023/08/27 11:08:31 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SPRITE_H
-# define SPRITE_H
+#include "mlx_variables.h"
+#include "so_long.h"
+#include "./minilibx/mlx.h"
 
-typedef struct s_all_sprites
+void	set_key_hooks(t_program *program, t_map *map)
 {
-	void	*pacman;
-}	t_all_sprite;
-
-#endif
+	mlx_key_hook();
+}

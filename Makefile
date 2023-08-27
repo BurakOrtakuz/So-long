@@ -9,10 +9,10 @@ SRC     =   ./map_validations/map_validation.c \
             ./utils/get_next_line/get_next_line.c \
             ./set_sprite.c \
 			./main.c
-MINILIBX_PATH       =   ./mlx
+MINILIBX_PATH       =   ./minilibx
 all:    			$(NAME)
 $(NAME):			$(LIBFT) mlx
-					$(CC) $(FLAGS) -o $(NAME) $(SRC) -framework OpenGL -framework AppKit -L$(MINILIBX_PATH)
+					$(CC) $(FLAGS) -o $(NAME) $(SRC) -framework OpenGL -framework AppKit -L$(MINILIBX_PATH) -lmlx
 mlx:
 					make -C $(MINILIBX_PATH) all
 exe:				$(NAME)

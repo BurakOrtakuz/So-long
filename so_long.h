@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 23:59:05 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/13 21:07:07 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/26 14:56:39 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ typedef struct s_coordinat
 {
 	int	x;
 	int	y;
-}t_coordinat;
+}	t_coordinat;
 
 typedef struct s_map
 {
@@ -27,7 +27,7 @@ typedef struct s_map
 	int			coin;
 	t_coordinat	exit;
 	t_coordinat	player;
-}t_map;
+}	t_map;
 
 void	calculate_things(t_map *map);
 void	is_map_borders_valid(char **map);

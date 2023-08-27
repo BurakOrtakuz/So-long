@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 23:50:31 by burak             #+#    #+#             */
-/*   Updated: 2023/08/26 11:28:30 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/26 17:44:01 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,17 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <fcntl.h>
+#include "mlx_variables.h"
+#include "./minilibx/mlx.h"
 
 int	main(int ac, char **av)
 {
-	t_map	map;
-	int		i;
+	t_map		map;
+	t_program	program;
 
 	map.map = is_file_valid(ac, av);
 	calculate_things(&map);
+	/*
 	printf("Coins = %d Player x = %d Player y = %d Exit x = %d Exit y = %d\n",
 		map.coin, map.player.x, map.player.y, map.exit.x, map.exit.y);
 	printf("----------------------------------\n");
@@ -35,4 +38,12 @@ int	main(int ac, char **av)
 		i++;
 	}
 	printf("----------------------------------\n");
+	*/
+	
+	program.mlx = mlx_init();
+	program.window.reference = mlx_new_window(program.mlx, 
+			32 * map.map_x_lenght, 32* map.map_y_lenght, "so_long");
+	set_all_sprites(&program);
+	put_all_image(&program, &map);
+	mlx_loop(program.mlx);
 }
