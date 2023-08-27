@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 23:50:31 by burak             #+#    #+#             */
-/*   Updated: 2023/08/26 17:44:01 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/27 16:35:20 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,10 @@ int	main(int ac, char **av)
 
 	map.map = is_file_valid(ac, av);
 	calculate_things(&map);
-	/*
-	printf("Coins = %d Player x = %d Player y = %d Exit x = %d Exit y = %d\n",
-		map.coin, map.player.x, map.player.y, map.exit.x, map.exit.y);
-	printf("----------------------------------\n");
-	i = 0;
-	while (map.map[i])
-	{
-		ft_putstr(map.map[i], 1);
-		ft_putstr("\n", 1);
-		i++;
-	}
-	printf("----------------------------------\n");
-	*/
-	
 	program.mlx = mlx_init();
+	program.map = &map;
 	program.window.reference = mlx_new_window(program.mlx, 
-			32 * map.map_x_lenght, 32* map.map_y_lenght, "so_long");
-	set_all_sprites(&program);
-	put_all_image(&program, &map);
+			32 * map.map_x_lenght, 32 * map.map_y_lenght, "so_long");
+	set_key_hooks(&program);
 	mlx_loop(program.mlx);
 }

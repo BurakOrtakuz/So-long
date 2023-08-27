@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 23:34:37 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/26 13:44:13 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/27 15:03:15 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,8 @@ static void	found_things(t_map *map, int i, int j)
 		map->coin++;
 	else if (map->map[i][j] == 'P')
 	{
-		map->player.x = j;
-		map->player.y = i;
+		map->player.x = i;
+		map->player.y = j;
 	}
 	else if (map->map[i][j] != '1' && map->map[i][j] != '0')
 		error_massage("Invalid Map Character", map->map);
@@ -81,28 +81,28 @@ static void	found_things(t_map *map, int i, int j)
 
 void	calculate_things(t_map *map)
 {
-	int	i;
-	int	j;
-	int	coins;
+	int		i;
+	int		j;
+	int		coins;
+	char	**dummy_map;
 
 	i = 0;
 	map->coin = 0;
 	while (map->map[i])
 	{
-		j = 0;
-		while (map->map[i][j])
-		{
+		j = -1;
+		while (++j, map->map[i][j])
 			found_things(map, i, j);
-			j++;
-		}
 		i++;
 	}
 	is_there_all_things(map);
 	map->map_x_lenght = j;
 	map->map_y_lenght = i;
 	coins = 0;
+	dummy_map = create_dummy_map(map);
 	is_player_reach_all_collectiables(
-		create_dummy_map(map), map->player.y, map->player.x, &coins);
+		dummy_map, map->player.x, map->player.y, &coins);
+	free_map(dummy_map);
 	if (coins != map->coin)
 		error_massage("Player Can Not Collect All Coins Or Can Not Reach Exit",
 			map->map);

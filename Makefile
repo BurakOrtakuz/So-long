@@ -3,11 +3,14 @@ CC      =   gcc
 FLAGS   =   -Wall -Wextra -Werror
 SRC     =   ./map_validations/map_validation.c \
             ./map_validations/variables.c \
+			./map_validations/error_managament.c \
             ./utils/ft_split.c \
             ./utils/so_long_utils.c \
 			./utils/get_next_line/get_next_line_utils.c \
             ./utils/get_next_line/get_next_line.c \
             ./set_sprite.c \
+			./key_hooks.c \
+			./key_events.c \
 			./main.c
 MINILIBX_PATH       =   ./minilibx
 all:    			$(NAME)

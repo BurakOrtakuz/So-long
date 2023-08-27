@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 23:57:10 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/25 17:58:36 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/27 16:33:34 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,17 +44,36 @@ void	*ft_memcpy(char *dst, const char *src, int n)
 	return (dst);
 }
 
-char	*ft_realloc(char *src, int size)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	int		i;
-	char	*temp;
+	size_t	index;
 
-	i = 0;
-	temp = (char *)malloc(size * sizeof(char));
-	while (src[i])
+	index = 0;
+	while ((index + 1) < size && src[index])
 	{
-		temp[i] = src[i];
-		i++;
+		dst[index] = src[index];
+		index++;
 	}
-	return (temp);
+	if (size)
+		dst[index] = '\0';
+	return (ft_strlen2(src));
+}
+
+char	*ft_strjoin2(char *s1, char *s2)
+{
+	char	*string;
+	size_t	length;
+
+	length = ft_strlen2(s1);
+	string = (char *)malloc(length + ft_strlen2(s2) + 1);
+	if (string && s1 && s2)
+	{
+		ft_strlcpy(string, s1, length + 1);
+		while (*s2)
+			string[length++] = *s2++;
+		string[length] = '\0';
+	}
+	if (s1[0] != '\0')
+		free(s1);
+	return (string);
 }

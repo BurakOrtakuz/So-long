@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 00:02:05 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/26 11:33:55 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/27 16:34:41 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,6 @@ static int	check_ber(char *str)
 	return (0);
 }
 
-void	error_massage(char *str, char **map)
-{
-	ft_putstr("Error\n", 1);
-	ft_putstr(str, 1);
-	if (map)
-		free(map);
-	exit(-1);
-}
-
 char	**is_file_valid(int ac, char **av)
 {
 	int	fd;
@@ -51,7 +42,7 @@ char	**is_file_valid(int ac, char **av)
 	if (!fd)
 	{
 		close(fd);
-		error_massage("FIle read failed", NULL);
+		error_massage("File read failed", NULL);
 	}
 	return (is_valid(fd));
 }
@@ -62,7 +53,6 @@ char	**is_valid(int fd)
 	char	*temp;
 	char	*temp2;
 	int		i;
-	int		j;
 
 	temp2 = "\0";
 	while (1)
@@ -71,16 +61,14 @@ char	**is_valid(int fd)
 		if (!temp)
 			break ;
 		i = ft_strlen2(temp2);
-		temp2 = ft_realloc(temp2, i + ft_strlen2(temp));
-		j = 0;
-		while (j < ft_strlen2(temp))
-		{
-			temp2[i + j] = temp[j];
-			j++;
-		}
+		temp2 = ft_strjoin2(temp2, temp);
+		free(temp);
 	}
 	map = ft_split(temp2, '\n');
+	free(temp2);
 	is_map_borders_valid(map);
+	close(fd);
+
 	return (map);
 }
 

@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 12:29:07 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/26 15:58:51 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/27 11:12:19 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,18 +61,18 @@ void	check_map(char point, int i, int j, t_program *program)
 	}
 }
 
-void	put_all_image(t_program *program, t_map *map)
+void	put_all_image(t_program *program)
 {
 	int	i;
 	int	j;
 
 	i = -1;
-	while (++i, i < map->map_y_lenght)
+	while (++i, i < program->map->map_y_lenght)
 	{
 		j = -1;
-		while (++j, j < map->map_x_lenght)
+		while (++j, j < program->map->map_x_lenght)
 		{
-			check_map(map->map[i][j], i, j, program);
+			check_map(program->map->map[i][j], i, j, program);
 		}
 	}
 }
