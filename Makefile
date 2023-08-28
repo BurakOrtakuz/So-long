@@ -8,6 +8,8 @@ SRC     =   ./map_validations/map_validation.c \
             ./utils/so_long_utils.c \
 			./utils/get_next_line/get_next_line_utils.c \
             ./utils/get_next_line/get_next_line.c \
+			./list.c \
+			./animation.c \
             ./set_sprite.c \
 			./key_hooks.c \
 			./key_events.c \

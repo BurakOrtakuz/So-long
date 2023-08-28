@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 00:02:05 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/27 16:34:41 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/28 12:31:44 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ char	**is_valid(int fd)
 	char	**map;
 	char	*temp;
 	char	*temp2;
-	int		i;
 
 	temp2 = "\0";
 	while (1)
@@ -60,7 +59,6 @@ char	**is_valid(int fd)
 		temp = get_next_line(fd);
 		if (!temp)
 			break ;
-		i = ft_strlen2(temp2);
 		temp2 = ft_strjoin2(temp2, temp);
 		free(temp);
 	}
@@ -68,7 +66,6 @@ char	**is_valid(int fd)
 	free(temp2);
 	is_map_borders_valid(map);
 	close(fd);
-
 	return (map);
 }
 

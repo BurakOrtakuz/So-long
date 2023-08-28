@@ -6,13 +6,14 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 12:23:14 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/27 14:41:35 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/28 19:18:59 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx_variables.h"
 #include "./minilibx/mlx.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 int	key_down(int keycode, t_program *program)
 {
@@ -42,6 +43,7 @@ void	move(t_program *program, int x, int y)
 		program->map->map[program->map->player.x][program->map->player.y] = '0';
 		program->map->player.x = way.x;
 		program->map->player.y = way.y;
+		program->game_variables.movement++;
 	}
 	else if (symbol == '0')
 	{
@@ -49,6 +51,7 @@ void	move(t_program *program, int x, int y)
 		program->map->map[program->map->player.x][program->map->player.y] = '0';
 		program->map->player.x = way.x;
 		program->map->player.y = way.y;
+		program->game_variables.movement++;
 	}
 	else if (symbol == 'E' && 
 		program->game_variables.collected_coin == program->map->coin)
@@ -57,26 +60,21 @@ void	move(t_program *program, int x, int y)
 
 int	render_next_frame(t_program *program)
 {
-	int	speed;
+	static int	fps = 0;
 
-	speed = 1;
-	if (program->game_variables.moving == 0)
+	if (fps == 800)
 	{
-		move(program, 0, -1);
+		keyboard_pressed(program);
+		fps = 0;
 	}
-	else if (program->game_variables.moving == 2)
+	if (fps % 700 == 0)
 	{
-		move(program, 0, 1);
+		program->sprites.pacman = program->sprites.pacman->next;
+		mlx_clear_window(program->mlx, program->window);
+		put_all_image(program);
 	}
-	else if (program->game_variables.moving == 13)
-	{
-		move(program, -1, 0);
-	}
-	else if (program->game_variables.moving == 1)
-	{
-		move(program, 1, 0);
-	}
-	mlx_clear_window(program->mlx, program->window.reference);
-	put_all_image(program);
+	if (fps == 2000)
+		fps = 0;
+	fps++;
 	return (0);
 }
