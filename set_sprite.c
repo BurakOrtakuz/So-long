@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 12:29:07 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/29 18:11:24 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/29 18:43:37 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,14 +87,12 @@ void	put_movement(t_program *program, int y_size)
 	j = 0;
 	while (i != 0)
 	{
-		printf("%d %d\n",i, temp);
 		mlx_put_image_to_window(program->mlx, program->window, 
 			program->sprites.fonts[temp / i], j * 72, y_size * 32);
 		temp %= i;
 		i /= 10;
 		j++;
 	}
-
 }
 
 void	put_all_image(t_program *program)
