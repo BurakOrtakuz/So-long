@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 17:51:18 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/29 13:27:50 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/29 20:04:52 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@ typedef struct s_all_sprites
 	t_list	*pacman_down;
 	t_list	*pacman_left;
 	t_list	*pacman_up;
+	t_list	*ghost;
+	t_list	*ghost_up;
+	t_list	*ghost_down;
+	t_list	*ghost_right;
+	t_list	*ghost_left;
 	void	*fonts[10];
 	void	*wall;
 	void	*space;
@@ -44,13 +49,22 @@ typedef struct s_game_variables
 	int	movement;
 }	t_game_variables;
 
+typedef struct s_ghosts
+{
+	t_vector	coordinat;
+	t_list		***ghost;
+}	t_ghosts;
+
 typedef struct s_program {
 	void				*mlx;
 	void				*window;
 	t_all_sprites		sprites;
 	t_map				*map;
+	t_ghosts			*ghosts;
 	t_game_variables	game_variables;
 }	t_program;
+
+void	set_ghost_b_sprites(t_program *program);
 
 void	set_all_sprites(t_program *program);
 void	set_animation_sprites(t_program *program);

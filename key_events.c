@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 12:23:14 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/29 12:32:20 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/29 20:02:49 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int	render_next_frame(t_program *program)
 
 	if (fps % 800 == 0)
 	{
+		//hayaleti hareket ettir.
 		keyboard_pressed(program);
 		fps = 0;
 	}

@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 23:34:37 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/27 18:52:04 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/29 18:49:50 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,10 @@ static void	found_things(t_map *map, int i, int j)
 	{
 		map->player.x = i;
 		map->player.y = j;
+	}
+	else if (map->map[i][j] == 'G')
+	{
+		
 	}
 	else if (map->map[i][j] != '1' && map->map[i][j] != '0')
 		error_massage("Invalid Map Character", map->map);
