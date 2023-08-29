@@ -4,7 +4,9 @@ FLAGS   =   -Wall -Wextra -Werror
 SRC     =   ./map_validations/map_validation.c \
             ./map_validations/variables.c \
 			./map_validations/error_managament.c \
+			./utils/so_long_utils_extra.c \
             ./utils/ft_split.c \
+			./utils/ft_itoa.c \
             ./utils/so_long_utils.c \
 			./utils/get_next_line/get_next_line_utils.c \
             ./utils/get_next_line/get_next_line.c \

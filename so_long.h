@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 23:59:05 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/27 16:33:40 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/28 19:42:08 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,10 @@ void	error_massage(char *str, char **map);
 void	free_map(char **map);
 int		ft_strlen2(const char *str);
 void	ft_putstr(char *str, int fd);
+void	ft_putnbr(int n);
 char	**is_valid(int fd);
 void	*ft_memcpy(char *dst, const char *src, int n);
 char	*ft_strjoin2(char *s1, char *s2);
 char	**ft_split(char const *s, char c);
+char	*ft_itoa(int n);
 #endif

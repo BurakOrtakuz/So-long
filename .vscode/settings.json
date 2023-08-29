@@ -4,6 +4,8 @@
 		"so_long.h": "c",
 		"fcntl.h": "c",
 		"mlx_variables.h": "c",
-		"mlx.h": "c"
+		"mlx.h": "c",
+		"stdlib.h": "c",
+		"list.h": "c"
 	}
 }

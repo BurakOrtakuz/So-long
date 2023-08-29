@@ -6,14 +6,14 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 12:23:14 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/28 19:18:59 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/29 12:32:20 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx_variables.h"
 #include "./minilibx/mlx.h"
 #include <stdlib.h>
-#include <stdio.h>
+#include "so_long.h"
 
 int	key_down(int keycode, t_program *program)
 {
@@ -44,6 +44,8 @@ void	move(t_program *program, int x, int y)
 		program->map->player.x = way.x;
 		program->map->player.y = way.y;
 		program->game_variables.movement++;
+		ft_putnbr(program->game_variables.movement);
+		ft_putstr("\n", 1);
 	}
 	else if (symbol == '0')
 	{
@@ -52,6 +54,8 @@ void	move(t_program *program, int x, int y)
 		program->map->player.x = way.x;
 		program->map->player.y = way.y;
 		program->game_variables.movement++;
+		ft_putnbr(program->game_variables.movement);
+		ft_putstr("\n", 1);
 	}
 	else if (symbol == 'E' && 
 		program->game_variables.collected_coin == program->map->coin)
@@ -62,7 +66,7 @@ int	render_next_frame(t_program *program)
 {
 	static int	fps = 0;
 
-	if (fps == 800)
+	if (fps % 800 == 0)
 	{
 		keyboard_pressed(program);
 		fps = 0;
@@ -73,7 +77,7 @@ int	render_next_frame(t_program *program)
 		mlx_clear_window(program->mlx, program->window);
 		put_all_image(program);
 	}
-	if (fps == 2000)
+	if (fps == 5600)
 		fps = 0;
 	fps++;
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 17:51:18 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/28 18:09:15 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/29 13:27:50 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_all_sprites
 	t_list	*pacman_down;
 	t_list	*pacman_left;
 	t_list	*pacman_up;
+	void	*fonts[10];
 	void	*wall;
 	void	*space;
 	void	*coin;
@@ -53,6 +54,7 @@ typedef struct s_program {
 
 void	set_all_sprites(t_program *program);
 void	set_animation_sprites(t_program *program);
+void	set_fonts(t_program *program);
 void	put_all_image(t_program *program);
 void	set_key_hooks(t_program *program);
 void	keyboard_pressed(t_program *program);

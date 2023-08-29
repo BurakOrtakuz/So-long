@@ -6,13 +6,15 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 18:18:03 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/28 19:16:08 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/28 19:29:45 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
+
 void	ft_putchar(char c)
 {
-	write(1, c, 1);
+	write(1, &c, 1);
 }
 
 void	ft_putnbr(int n)

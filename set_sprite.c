@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 12:29:07 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/28 18:09:30 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/29 18:11:24 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	set_all_sprites(t_program *program)
 	program->game_variables.moving = -1;
 	program->game_variables.last_move = -1;
 	set_animation_sprites(program);
+	set_fonts(program);
 	program->sprites.pacman = program->sprites.pacman_right;
 	program->sprites.wall = ft_new_sprite(program->mlx,
 			"./Sprites/Other/Walls/wall.xpm");
@@ -69,6 +70,33 @@ void	check_map(char point, int i, int j, t_program *program)
 	}
 }
 
+void	put_movement(t_program *program, int y_size)
+{
+	int	temp;
+	int	i;
+	int	j;
+
+	i = 1;
+	temp = program->game_variables.movement;
+	while (temp > 9)
+	{
+		i *= 10;
+		temp /= 10;
+	}
+	temp = program->game_variables.movement;
+	j = 0;
+	while (i != 0)
+	{
+		printf("%d %d\n",i, temp);
+		mlx_put_image_to_window(program->mlx, program->window, 
+			program->sprites.fonts[temp / i], j * 72, y_size * 32);
+		temp %= i;
+		i /= 10;
+		j++;
+	}
+
+}
+
 void	put_all_image(t_program *program)
 {
 	int	i;
@@ -83,4 +111,5 @@ void	put_all_image(t_program *program)
 			check_map(program->map->map[i][j], i, j, program);
 		}
 	}
+	put_movement(program, program->map->map_y_lenght);
 }

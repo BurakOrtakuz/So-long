@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 23:50:31 by burak             #+#    #+#             */
-/*   Updated: 2023/08/28 17:51:21 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/29 17:22:14 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(int ac, char **av)
 	program.mlx = mlx_init();
 	program.map = &map;
 	program.window = mlx_new_window(program.mlx, 
-			32 * map.map_x_lenght, 32 * (map.map_y_lenght + 1), "so_long");
+			32 * map.map_x_lenght, 32 * (map.map_y_lenght) + 121, "so_long");
 	set_key_hooks(&program);
 	mlx_loop(program.mlx);
 }

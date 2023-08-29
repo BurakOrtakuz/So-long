@@ -6,12 +6,37 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 11:02:43 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/28 18:06:26 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/29 17:12:11 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx_variables.h"
 #include "list.h"
+#include "./minilibx/mlx.h"
+
+void	set_fonts(t_program *program)
+{
+	program->sprites.fonts[0] = mlx_xpm_file_to_image(program->mlx, 
+			"./Sprites/Font/0.xpm", &(int){0}, &(int){0});
+	program->sprites.fonts[1] = mlx_xpm_file_to_image(program->mlx, 
+			"./Sprites/Font/1.xpm", &(int){0}, &(int){0});
+	program->sprites.fonts[2] = mlx_xpm_file_to_image(program->mlx, 
+			"./Sprites/Font/2.xpm", &(int){0}, &(int){0});
+	program->sprites.fonts[3] = mlx_xpm_file_to_image(program->mlx, 
+			"./Sprites/Font/3.xpm", &(int){0}, &(int){0});
+	program->sprites.fonts[4] = mlx_xpm_file_to_image(program->mlx, 
+			"./Sprites/Font/4.xpm", &(int){0}, &(int){0});
+	program->sprites.fonts[5] = mlx_xpm_file_to_image(program->mlx, 
+			"./Sprites/Font/5.xpm", &(int){0}, &(int){0});
+	program->sprites.fonts[6] = mlx_xpm_file_to_image(program->mlx, 
+			"./Sprites/Font/6.xpm", &(int){0}, &(int){0});
+	program->sprites.fonts[7] = mlx_xpm_file_to_image(program->mlx, 
+			"./Sprites/Font/7.xpm", &(int){0}, &(int){0});
+	program->sprites.fonts[8] = mlx_xpm_file_to_image(program->mlx, 
+			"./Sprites/Font/8.xpm", &(int){0}, &(int){0});
+	program->sprites.fonts[9] = mlx_xpm_file_to_image(program->mlx, 
+			"./Sprites/Font/9.xpm", &(int){0}, &(int){0});
+}
 
 void	set_animation_sprites(t_program *program)
 {
