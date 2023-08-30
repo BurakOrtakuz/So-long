@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 23:59:05 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/29 19:12:02 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/30 15:07:02 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_map
 	int			coin;
 	t_coordinat	exit;
 	t_coordinat	player;
+	t_coordinat	ghosts;
 }	t_map;
 
 void	calculate_things(t_map *map);

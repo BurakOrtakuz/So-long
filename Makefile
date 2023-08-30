@@ -10,6 +10,8 @@ SRC     =   ./map_validations/map_validation.c \
             ./utils/so_long_utils.c \
 			./utils/get_next_line/get_next_line_utils.c \
             ./utils/get_next_line/get_next_line.c \
+			./enemy_animation_set.c \
+			./enemy.c \
 			./list.c \
 			./animation.c \
             ./set_sprite.c \

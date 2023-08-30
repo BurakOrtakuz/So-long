@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 17:51:18 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/29 20:04:52 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/30 15:07:04 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,22 +49,17 @@ typedef struct s_game_variables
 	int	movement;
 }	t_game_variables;
 
-typedef struct s_ghosts
-{
-	t_vector	coordinat;
-	t_list		***ghost;
-}	t_ghosts;
 
 typedef struct s_program {
 	void				*mlx;
 	void				*window;
 	t_all_sprites		sprites;
 	t_map				*map;
-	t_ghosts			*ghosts;
 	t_game_variables	game_variables;
 }	t_program;
 
 void	set_ghost_b_sprites(t_program *program);
+void	move_ghost(t_program *program);
 
 void	set_all_sprites(t_program *program);
 void	set_animation_sprites(t_program *program);

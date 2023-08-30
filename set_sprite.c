@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 12:29:07 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/29 18:43:37 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/30 16:08:14 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,21 @@ static void	*ft_new_sprite(void *mlx, char *path)
 
 void	set_all_sprites(t_program *program)
 {
-	program->sprites.pacman = NULL;
 	program->sprites.pacman_down = NULL;
 	program->sprites.pacman_left = NULL;
 	program->sprites.pacman_right = NULL;
 	program->sprites.pacman_up = NULL;
+	program->sprites.ghost_down = NULL;
+	program->sprites.ghost_left = NULL;
+	program->sprites.ghost_right = NULL;
+	program->sprites.ghost_up = NULL;
 	program->game_variables.movement = 0;
 	program->game_variables.moving = -1;
 	program->game_variables.last_move = -1;
 	set_animation_sprites(program);
+	set_ghost_b_sprites(program);
 	set_fonts(program);
+	program->sprites.ghost = program->sprites.ghost_right;
 	program->sprites.pacman = program->sprites.pacman_right;
 	program->sprites.wall = ft_new_sprite(program->mlx,
 			"./Sprites/Other/Walls/wall.xpm");
@@ -57,17 +62,16 @@ void	check_map(char point, int i, int j, t_program *program)
 	else if (point == 'C')
 	{
 		mlx_put_image_to_window(program->mlx, program->window,
-			program->sprites.space, j * 32, i * 32);
-		mlx_put_image_to_window(program->mlx, program->window,
 			program->sprites.coin, j * 32, i * 32);
 	}
 	else if (point == 'E')
 	{
 		mlx_put_image_to_window(program->mlx, program->window,
-			program->sprites.space, j * 32, i * 32);
-		mlx_put_image_to_window(program->mlx, program->window,
 			program->sprites.exit, j * 32, i * 32);
 	}
+	else if (point == 'G')
+		mlx_put_image_to_window(program->mlx, program->window,
+			program->sprites.ghost->content, j * 32, i * 32);
 }
 
 void	put_movement(t_program *program, int y_size)
