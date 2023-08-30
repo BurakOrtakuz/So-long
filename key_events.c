@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 12:23:14 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/30 15:32:43 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/30 16:31:19 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,15 @@ int	key_up(int keycode, t_program *program)
 	return (0);
 }
 
+void	move_helper(t_program *program, t_vector *way)
+{
+	program->map->map[way->x][way->y] = 'P';
+	program->map->map[program->map->player.x][program->map->player.y] = '0';
+	program->map->player.x = way->x;
+	program->map->player.y = way->y;
+	program->game_variables.movement++;
+}
+
 void	move(t_program *program, int x, int y)
 {
 	t_vector	way;
@@ -39,21 +48,14 @@ void	move(t_program *program, int x, int y)
 	if (symbol == 'C')
 	{
 		program->game_variables.collected_coin++;
-		program->map->map[way.x][way.y] = 'P';
-		program->map->map[program->map->player.x][program->map->player.y] = '0';
-		program->map->player.x = way.x;
-		program->map->player.y = way.y;
-		program->game_variables.movement++;
+		move_helper(program, &way);
 		ft_putnbr(program->game_variables.movement);
 		ft_putstr("\n", 1);
 	}
 	else if (symbol == '0')
 	{
 		program->map->map[way.x][way.y] = 'P';
-		program->map->map[program->map->player.x][program->map->player.y] = '0';
-		program->map->player.x = way.x;
-		program->map->player.y = way.y;
-		program->game_variables.movement++;
+		move_helper(program, &way);
 		ft_putnbr(program->game_variables.movement);
 		ft_putstr("\n", 1);
 	}

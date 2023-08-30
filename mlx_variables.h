@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 17:51:18 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/30 15:07:04 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/30 16:33:24 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ typedef struct s_game_variables
 	int	collected_coin;
 	int	movement;
 }	t_game_variables;
-
 
 typedef struct s_program {
 	void				*mlx;
