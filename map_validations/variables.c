@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 23:34:37 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/31 15:43:08 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/31 16:08:30 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ static void	found_things(t_map *map, int i, int j)
 {
 	if (map->map[i][j] == 'E')
 	{
+		if (map->exit.x)
+			error_massage("Only 1 Exit Can be In The Map", map->map);
 		map->exit.x = j;
 		map->exit.y = i;
 	}
