@@ -6,11 +6,10 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 15:02:54 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/31 14:33:47 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/31 15:42:36 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
 #include <stdlib.h>
 #include "../mlx_variables.h"
 #include "../minilibx/mlx.h"

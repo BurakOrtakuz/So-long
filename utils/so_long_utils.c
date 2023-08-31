@@ -6,13 +6,12 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 23:57:10 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/27 16:33:34 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/31 15:46:04 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
-#include <stdio.h>
 
 int	ft_strlen2(const char *str)
 {

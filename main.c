@@ -6,18 +6,11 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 23:50:31 by burak             #+#    #+#             */
-/*   Updated: 2023/08/31 13:42:33 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/31 16:02:32 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./utils/get_next_line/get_next_line.h"
-#include <stdlib.h>
-#include "so_long.h"
-#include <unistd.h>
-#include <stdio.h>
-#include <fcntl.h>
 #include "mlx_variables.h"
-#include "./minilibx/mlx.h"
 
 int	main(int ac, char **av)
 {
@@ -26,10 +19,6 @@ int	main(int ac, char **av)
 
 	map.map = is_file_valid(ac, av);
 	calculate_things(&map);
-	program.mlx = mlx_init();
-	program.map = &map;
-	program.window = mlx_new_window(program.mlx, 
-			32 * map.map_x_lenght, 32 * (map.map_y_lenght) + 121, "so_long");
+	program.map = &map; 
 	set_key_hooks(&program);
-	mlx_loop(program.mlx);
 }

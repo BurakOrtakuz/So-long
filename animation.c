@@ -6,12 +6,11 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 11:02:43 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/29 17:12:11 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/31 15:46:25 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx_variables.h"
-#include "list.h"
 #include "./minilibx/mlx.h"
 
 void	set_fonts(t_program *program)

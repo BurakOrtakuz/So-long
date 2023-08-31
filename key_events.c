@@ -6,14 +6,13 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 12:23:14 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/31 14:50:11 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/31 15:54:18 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx_variables.h"
 #include "./minilibx/mlx.h"
-#include <stdlib.h>
-#include "so_long.h"
+#include <stdio.h>
 
 int	key_down(int keycode, t_program *program)
 {

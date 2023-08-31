@@ -6,16 +6,13 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 00:02:05 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/31 13:37:54 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/31 15:59:15 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
-#include <unistd.h>
 #include <fcntl.h>
-#include <stdlib.h>
 #include "../utils/get_next_line/get_next_line.h"
-#include <stdio.h>
 
 static int	check_ber(char *str)
 {
@@ -35,7 +32,7 @@ char	**is_file_valid(int ac, char **av)
 	int	fd;
 
 	if (ac != 2)
-		error_massage("Invalid number of arguman!", NULL);
+		error_massage("Invalid number of argumant!", NULL);
 	if (!check_ber(av[1]))
 		error_massage("Invalid file type!", NULL);
 	fd = open(av[1], O_RDONLY);
