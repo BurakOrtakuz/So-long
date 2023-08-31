@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 12:29:07 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/30 16:08:14 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/31 15:39:56 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ void	set_all_sprites(t_program *program)
 	program->sprites.space = ft_new_sprite(program->mlx,
 			"./Sprites/Other/Walls/black.xpm");
 	program->sprites.coin = ft_new_sprite(program->mlx,
-			"./Sprites/Other/Pacdots/pacdot_food.xpm");
+			"./Sprites/Other/pacdot_food.xpm");
 	program->sprites.exit = ft_new_sprite(program->mlx,
-			"./Sprites/Other/Portal/portal.xpm");
+			"./Sprites/Other/portal.xpm");
 }
 
 void	check_map(char point, int i, int j, t_program *program)
