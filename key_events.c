@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 12:23:14 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/30 16:31:19 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/31 13:05:07 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,8 @@ int	render_next_frame(t_program *program)
 
 	if (fps % 800 == 0)
 	{
-		move_ghost(program);
+		if (program->map->ghosts.x)
+			move_ghost(program);
 		keyboard_pressed(program);
 		fps = 0;
 	}

@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 23:34:37 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/30 16:41:27 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/31 13:07:56 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,13 @@ static void	found_things(t_map *map, int i, int j)
 		map->coin++;
 	else if (map->map[i][j] == 'P')
 	{
-		map->player.x = i;
-		map->player.y = j;
+		if (!map->player.x)
+		{
+			map->player.x = i;
+			map->player.y = j;
+		}
+		else
+			error_massage("Only 1 Player Can be In The Map", map->map);
 	}
 	else if (map->map[i][j] == 'G')
 	{
