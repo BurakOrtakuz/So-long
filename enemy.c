@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 19:49:50 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/30 16:05:50 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/31 14:43:35 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	move_ghost(t_program *program)
 	y = program->map->ghosts.y;
 	program->sprites.ghost = program->sprites.ghost->next;
 	if (program->map->map[program->map->ghosts.x][y + i] == 'P')
-		exit_game(program);
+		exit_game(program, "You Lose!");
 	else if (program->map->map[program->map->ghosts.x][y + i] != '1' 
 		&& program->map->map[program->map->ghosts.x][y + i] != 'E')
 	{

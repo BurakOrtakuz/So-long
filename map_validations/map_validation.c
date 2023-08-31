@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 00:02:05 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/28 12:31:44 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/31 13:37:54 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,8 @@ char	**is_file_valid(int ac, char **av)
 	if (!check_ber(av[1]))
 		error_massage("Invalid file type!", NULL);
 	fd = open(av[1], O_RDONLY);
-	if (!fd)
+	if (fd < 0)
 	{
-		close(fd);
 		error_massage("File read failed", NULL);
 	}
 	return (is_valid(fd));

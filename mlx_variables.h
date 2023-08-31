@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 17:51:18 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/30 16:33:24 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/31 14:49:59 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,17 @@ void	move_ghost(t_program *program);
 void	set_all_sprites(t_program *program);
 void	set_animation_sprites(t_program *program);
 void	set_fonts(t_program *program);
-void	put_all_image(t_program *program);
 void	set_key_hooks(t_program *program);
-void	keyboard_pressed(t_program *program);
-void	move(t_program *program, int x, int y);
+
 int		render_next_frame(t_program *program);
+void	put_all_image(t_program *program);
+
+void	move(t_program *program, int x, int y);
+void	keyboard_pressed(t_program *program);
 int		key_down(int keycode, t_program *program);
 int		key_up(int keycode, t_program *program);
-int		exit_game(t_program *program);
+
+int		exit_game(t_program *program, char *massage);
+int		exit_game_mouse(t_program *program);
+void	free_sprite(t_program *program);
 #endif
