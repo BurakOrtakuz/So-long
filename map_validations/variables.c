@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 23:34:37 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/30 15:07:21 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/30 16:41:27 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,12 @@ static char	**create_dummy_map(t_map *map)
 static void	is_player_reach_all_collectiables(
 	char **map, int i, int j, int *coins)
 {
-	if (map[i][j] == 'C')
+	if (map[i][j] == 'C' || map[i][j] == 'E')
 	{
 		*coins += 1;
 	}
+	if (map[i][j] == 'E')
+		map[i][j] = '1';
 	if (map[i][j] == '1' || map[i][j] == 'E')
 		return ;
 	map[i][j] = '1';
@@ -108,7 +110,7 @@ void	calculate_things(t_map *map)
 	is_player_reach_all_collectiables(
 		dummy_map, map->player.x, map->player.y, &coins);
 	free_map(dummy_map);
-	if (coins != map->coin)
+	if (coins != map->coin + 1)
 		error_massage("Player Can Not Collect All Coins Or Can Not Reach Exit",
 			map->map);
 }
