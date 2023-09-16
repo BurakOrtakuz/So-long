@@ -6,11 +6,12 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:16:41 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/07/12 10:13:44 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/31 17:37:22 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <stdlib.h>
 
 int	ft_strlen(char *s)
 {

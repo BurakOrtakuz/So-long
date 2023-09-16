@@ -6,30 +6,14 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 12:23:14 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/31 15:54:18 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/31 17:41:20 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx_variables.h"
 #include "./minilibx/mlx.h"
-#include <stdio.h>
 
-int	key_down(int keycode, t_program *program)
-{
-	if (keycode == 53)
-		exit_game(program, "You Closed The Game!!");
-	program->game_variables.moving = keycode;
-	return (0);
-}
-
-int	key_up(int keycode, t_program *program)
-{
-	(void)keycode;
-	program->game_variables.moving = -1;
-	return (0);
-}
-
-void	move_helper(t_program *program, t_vector *way)
+static void	move_helper(t_program *program, t_vector *way)
 {
 	program->map->map[way->x][way->y] = 'P';
 	program->map->map[program->map->player.x][program->map->player.y] = '0';
@@ -38,7 +22,7 @@ void	move_helper(t_program *program, t_vector *way)
 	program->game_variables.movement++;
 }
 
-void	move(t_program *program, int x, int y)
+static void	move(t_program *program, int x, int y)
 {
 	t_vector	way;
 	char		symbol;
@@ -56,31 +40,46 @@ void	move(t_program *program, int x, int y)
 		ft_putnbr(program->game_variables.movement);
 		ft_putstr("\n", 1);
 	}
-	else if (symbol == 'G')
-		exit_game(program, "You Lose!");
 	else if ((symbol == 'E' && 
 			program->game_variables.collected_coin == program->map->coin))
 		exit_game(program, "You Win!!! Congratulations!");
+}
+
+void	keyboard_pressed(t_program *program)
+{
+	if (program->game_variables.moving == 0)
+	{
+		move(program, 0, -1);
+		program->sprites.pacman = program->sprites.pacman_left;
+	}
+	else if (program->game_variables.moving == 2)
+	{
+		move(program, 0, 1);
+		program->sprites.pacman = program->sprites.pacman_right;
+	}
+	else if (program->game_variables.moving == 13)
+	{
+		move(program, -1, 0);
+		program->sprites.pacman = program->sprites.pacman_up;
+	}
+	else if (program->game_variables.moving == 1)
+	{
+		move(program, 1, 0);
+		program->sprites.pacman = program->sprites.pacman_down;
+	}
 }
 
 int	render_next_frame(t_program *program)
 {
 	static int	fps = 0;
 
-	if ((fps & 7999999) == 0)
+	if ((fps % 800) == 0 && program->game_variables.movement != -1)
 	{
-		if (program->map->ghosts.x)
-			move_ghost(program);
 		keyboard_pressed(program);
-		fps = 0;
-	}
-	if ((fps & 5999999) == 0)
-	{
-		program->sprites.pacman = program->sprites.pacman->next;
 		mlx_clear_window(program->mlx, program->window);
 		put_all_image(program);
 	}
-	if (fps == 56000000)
+	if (fps == 5600)
 		fps = 0;
 	fps++;
 	return (0);

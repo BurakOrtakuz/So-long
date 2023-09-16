@@ -6,11 +6,13 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:16:41 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/26 11:32:22 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/31 17:36:56 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <stdlib.h>
+#include <unistd.h>
 
 static char	*parse(char *s, char c)
 {

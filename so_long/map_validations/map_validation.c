@@ -6,13 +6,15 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 00:02:05 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/31 15:59:15 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/31 17:47:24 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 #include <fcntl.h>
 #include "../utils/get_next_line/get_next_line.h"
+#include <unistd.h>
+#include <stdlib.h>
 
 static int	check_ber(char *str)
 {

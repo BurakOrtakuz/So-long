@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:16:41 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/08/26 11:32:57 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/31 17:53:48 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,6 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 30
 # endif
-
-# include <fcntl.h>
-# include <stdlib.h>
-# include <unistd.h>
 
 char	*get_next_line(int fd);
 int		ft_strlen(char *s);
